@@ -15,3 +15,28 @@ I am going to assume you have Namecheap setup and your domain name is tutorial.m
 # Connecting your domain to your Heroku app
 
 To point your subdomain at Heroku, add a CNAME record in Namecheap
+
+![CNAME](add_CNAME.png "Logo Title Text 1")
+
+A CNAME is like a symlink in Unix. It says that the canonical name (C NAME) of domain A is actually this other domain B, so when someone visits domain B, show the content of domain A. It’s exactly what we want.
+
+Host should be the subdomain that you want to add, for example say we want to use 'mydjangoapp.tutorial.me', we will enter mydjangoapp
+
+We will fill the Value/Target field in a moment, after we explicitly setup the sub-domain in heroku.
+
+# Add the sub-domain To your Heroku app  via Heroku CLI
+
+From  your teminal type the following command to add the subdomain to your Heroku app. You will need to install and setup the Heroku CLI if you dont have it.
+
+    $ heroku domains:add mydjangoapp.tutorial.me --app my-django-app
+  
+This should respond with something like:
+
+    Adding mydjangoapp.tutorial.me to ⬢my-django-app... done
+    ▸    Configure your app's DNS provider to point to the DNS Target mydjangoapp.tutorial.me.herokudns.com.
+     ▸    For help, see https://devcenter.heroku.com/articles/custom-domains
+
+    The domain mydjangoapp.tutorial.me has been enqueued for addition
+     ▸    Run heroku domains:wait 'mydjangoapp.tutorial.me' to wait for completion
+      
+We will want to copy the DNS Target provided by heroku and add it to Namecheap as below:
