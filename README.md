@@ -41,7 +41,7 @@ This should respond with something like:
       
 We will want to copy the DNS Target provided by heroku and add it to Namecheap as below:
 
-![DNS](add_CNAME.png "DNS settings")
+![DNS](dns_target.png "DNS settings")
 
 Leave the last field as it is (Automatic).
 
